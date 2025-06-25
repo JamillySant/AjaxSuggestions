@@ -11,7 +11,6 @@ A aplicação consiste em um campo de busca que, à medida que o usuário digita
 O objetivo principal é ilustrar como o AJAX pode ser utilizado para criar interações dinâmicas em uma página web, atualizando partes do conteúdo sem a necessidade de recarregar a página inteira.
 
 ## 💻 Tecnologias utilizadas:
-* HTML
-* CSS
+* HTML & CSS
 * JavaScript (para a lógica AJAX)
 * PHP (para o backend que processa a requisição)
