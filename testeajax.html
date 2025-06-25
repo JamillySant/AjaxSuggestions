@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlyGames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function mostrarSugestao(str) {
+            const sugestoes = document.getElementById("txtSugestao");
+            if (str.length === 0) {
+                sugestoes.innerHTML = "";
+                return;
+            }
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    if (this.responseText.trim() === "Sem sugestão") {
+                        sugestoes.innerHTML = "<span>Sem sugestão</span>";
+                    } else {
+                        const sugestoesArray = this.responseText.split(",");
+                        sugestoes.innerHTML = sugestoesArray.map(s => `<span>${s.trim()}</span>`).join(" ");
+                    }
+                }
+            };
+            xhttp.open("GET", "gethint.php?q=" + encodeURIComponent(str), true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body style="background-image: url('classisc.jpeg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="input-box">
+        <label for="produto">Busque por seu game:</label>
+        <input type="text" id="produto" onkeyup="mostrarSugestao(this.value)">
+    </div>
+    <div class="sugestoes" id="txtSugestao"></div>
+</body>
+</html>
