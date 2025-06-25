@@ -13,4 +13,4 @@ O objetivo principal é ilustrar como o AJAX pode ser utilizado para criar inter
 ## 💻 Tecnologias utilizadas:
 * HTML & CSS
 * JavaScript (lógica AJAX)
-* PHP (para o backend que processa a requisição)
+* PHP (processo de requisição)
